@@ -34,7 +34,7 @@ class FormBuilder extends \Collective\Html\FormBuilder
     {
         $defaultValue = array_get($this->defaultValues, $this->transformKey($name));
 
-        if ($value === null && array_get($this->defaultValues, $this->transformKey($name))) {
+        if ($value === null && $defaultValue !== null) {
             $value = $defaultValue;
         }
 
