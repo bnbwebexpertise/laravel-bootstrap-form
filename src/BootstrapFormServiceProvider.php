@@ -27,7 +27,9 @@ class BootstrapFormServiceProvider extends ServiceProvider
         $this->app->singleton('bootstrap_form', function ($app) {
             $form = (new FormBuilder($app['form']))->setSessionStore($app['session.store']);
 
-            return new BootstrapForm($app['html'], $form, $app['config']);
+            $class = config('bootstrap_form.class');
+
+            return new $class($app['html'], $form, $app['config']);
         });
     }
 
