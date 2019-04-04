@@ -38,7 +38,7 @@ Of course, if there are errors for that field it will even populate them.
 First, require the package using Composer.
 
 ```shell
-composer require bnbwebexpertise/laravel-bootstrap-form
+composer require bnbwebexpertise/laravel-bootstrap-form:^1
 ```
 
 For Laravel 5.5 and newer the package is auto-loaded. For older versions, you must configure the providers as described below.
