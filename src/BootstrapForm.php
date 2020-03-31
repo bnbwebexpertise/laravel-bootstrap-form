@@ -557,7 +557,7 @@ class BootstrapForm
             $wrapperElement = '<div' . $this->html->attributes($wrapperOptions) . '>' . $elements . $this->getFieldError($name) . $comment . '</div>';
         }
 
-        $groupOptions = $this->getGroupOptions($options);
+        $groupOptions = $this->getGroupOptions($options + ['form-group-class' => 'form-checkboxes']);
 
         return $this->getFormGroupWithLabel($name, $label, $wrapperElement, $groupOptions);
     }
@@ -671,7 +671,7 @@ class BootstrapForm
             $wrapperElement = '<div' . $this->html->attributes($wrapperOptions) . '>' . $elements . $this->getFieldError($name) . $comment . '</div>';
         }
 
-        $groupOptions = $this->getGroupOptions($options);
+        $groupOptions = $this->getGroupOptions($options + ['form-group-class' => 'form-radios']);
 
         return $this->getFormGroupWithLabel($name, $label, $wrapperElement, $groupOptions);
     }
@@ -931,6 +931,12 @@ class BootstrapForm
             $class[] = $this->getGroupRequiredClass();
 
             Arr::forget($options, 'required');
+        }
+
+        if ( ! empty($options['form-group-class'])) {
+            $class[] = $options['form-group-class'];
+
+            Arr::forget($options, 'form-group-class');
         }
 
         $class = array_filter($class);
@@ -1342,6 +1348,6 @@ class BootstrapForm
      */
     protected function getGroupOptions($options = [])
     {
-        return array_only($options, ['required']);
+        return array_only($options, ['required', 'form-group-class']);
     }
 }
