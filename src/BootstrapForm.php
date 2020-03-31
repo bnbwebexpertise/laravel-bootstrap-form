@@ -654,8 +654,6 @@ class BootstrapForm
         $radioOptions = array_merge(['no-error' => true], $options);
         $index = 0;
 
-        Arr::forget($radioOptions, 'required');
-
         foreach ($choices as $value => $choiceLabel) {
             $checked = $value === $checkedValue;
 
