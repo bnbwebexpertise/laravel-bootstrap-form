@@ -608,7 +608,7 @@ class BootstrapForm
         array $options = []
     ) {
         $wrapperClass = $inline ? 'form-check form-check-inline' : 'form-check';
-        $label = $this->getLabelTitle($label, $name, $options) ?: '';
+        $label = $this->getLabelTitle($label, $name, Arr::except($options, 'required')) ?: '';
         $labelOptions = ['class' => 'form-check-label'];
         $displayError = ! Arr::exists($options, 'no-error');
         $options = Arr::except($options, 'no-error');
