@@ -279,3 +279,21 @@ displays a comment line with bootstrap `help-block` class :
     <p class="help-block">Please use only letters and numbers</p>
 </div>
 ```
+
+## Form group class
+
+```php
+// The label will be inferred as 'Username'.
+BootForm::text('username', null, null, [ 'form-group-class' => 'my-custom-class' ]);
+```
+
+adds a class to the `form-group` element :
+
+```html
+<div class="form-group my-custom-class">
+    <label for="username" class="control-label col-md-2">Username</label>
+    <div class="col-md-10">
+        <input type="text" name="username" class="form-control">
+    </div>
+</div>
+```
