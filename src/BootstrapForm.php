@@ -512,7 +512,7 @@ class BootstrapForm
 
         $options['class'] = trim($options['class'] . ' ' . $this->getFieldErrorClass($name));
 
-        $label = ($label !== null ? $this->form->label($name, $label, $labelOptions) : '');
+        $label = ($label !== null ? $this->form->label(isset($options['id']) ? $options['id'] : $name, $label, $labelOptions) : '');
         $inputElement = $this->form->checkbox($name, $value, $checked, $options);
         $labelElement = $inputElement . $label . $this->getFieldError($name);
 
@@ -541,11 +541,12 @@ class BootstrapForm
         array $options = []
     ) {
         $elements = '';
+        $index = 0;
 
         foreach ($choices as $value => $choiceLabel) {
             $checked = in_array($value, (array)$checkedValues);
 
-            $elements .= $this->checkboxElement($name, $choiceLabel, $value, $checked, $inline, $options);
+            $elements .= $this->checkboxElement($name, $choiceLabel, $value, $checked, $inline, $options + ['id' => $name . ++$index]);
         }
 
         $comment = $this->getComment($options);
