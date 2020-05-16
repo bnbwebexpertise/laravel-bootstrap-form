@@ -1,7 +1,7 @@
 Bootstrap 4 forms for Laravel 5
 ==================================
 
-This is a package for simply creating Bootstrap 4 styled form groups in Laravel 5. It extends the normal form builder to provide you with horizontal form groups completed with labels, error messages and appropriate class usage.
+This is a package for simply creating Bootstrap 4 styled form groups in Laravel 5.7 and higher. It extends the normal form builder to provide you with horizontal form groups completed with labels, error messages and appropriate class usage.
 
 For Bootstrap 3, use [version 1.x](https://github.com/bnbwebexpertise/laravel-bootstrap-form/tree/1) : `composer require bnbwebexpertise/laravel-bootstrap-form:^1`
 
