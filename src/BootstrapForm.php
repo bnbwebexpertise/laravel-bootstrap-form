@@ -921,6 +921,10 @@ class BootstrapForm
     protected function getFormGroupOptions($name = null, array $options = [])
     {
         $class = ['form-group'];
+        
+        if ($this->type == Type::HORIZONTAL) {
+            $class[] = 'row';
+        }
 
         if ($name) {
             $class[] = $this->getFormGroupErrorClass($name);
