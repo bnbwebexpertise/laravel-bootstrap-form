@@ -305,7 +305,7 @@ class BootstrapForm
      */
     public function staticField($name, $label = null, $value = null, array $options = [])
     {
-        $options = array_merge(['class' => 'form-control-static'], $options);
+        $options = array_merge(['class' => $this->config->get('form_control_static_class', 'form-control-plaintext')], $options);
 
         if ( ! is_null($value)) {
             if (is_array($value) and isset($value['html'])) {

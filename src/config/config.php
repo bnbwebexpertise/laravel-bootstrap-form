@@ -32,6 +32,8 @@ return [
 
     'left_column_offset_class' => 'offset-sm-2 offset-md-3',
 
+    'form_control_static_class' => 'form-control-plaintext',
+
     /*
     |--------------------------------------------------------------------------
     | Required fields
