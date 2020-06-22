@@ -104,6 +104,8 @@ These values take precedence over the model values, but not the provided or the 
 
 When used in a blade template enclose the helper methods inside an unescaped block: `{!! !!}`
 
+> __Warning :__ make sure to escape any character which comes from user input (from any possible source) while using raw ouput tags especially when using explicit HTML version of values.
+
 ### Opening a form
 
 BootstrapForm has improved the process of opening forms, both in terms of providing Bootstrap classes as well as managing models for model-based forms.
@@ -296,4 +298,19 @@ adds a class to the `form-group` element :
         <input type="text" name="username" class="form-control">
     </div>
 </div>
+```
+
+#### Static Fields
+
+Display text as static field (replicate input layout) with optionnal default value (supports HTML)
+
+```php
+// A static field read from the model
+BootForm::staticField('username', 'Username']);
+
+// A static field with explicit value
+BootForm::staticField('username', 'Username', $model->login]);
+
+// A static field with explicit value in HTML code using array notation
+BootForm::staticField('username', 'Username', ['html' => sprintf('Set to <strong>%s</strong>', e($model->username)]);
 ```
