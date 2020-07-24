@@ -323,7 +323,7 @@ class BootstrapForm
         $wrapperElement = '<div' . $this->html->attributes($wrapperOptions) . '>' . $inputElement . $this->getFieldError($name) . $comment . '</div>';
         $groupOptions = $this->getGroupOptions($options);
 
-        return $this->getFormGroupWithLabel($name, $label, $wrapperElement, $groupOptions);
+        return $this->getFormGroupWithLabel($name, $options['id'], $label, $wrapperElement, $groupOptions);
     }
 
 
@@ -670,7 +670,10 @@ class BootstrapForm
             $wrapperElement = '<div' . $this->html->attributes($wrapperOptions) . '>' . $elements . $this->getFieldError($name) . $comment . '</div>';
         }
 
-        $groupOptions = $this->getGroupOptions($options + ['form-group-class' => 'form-radios']);
+        $groupOptions = $this->getGroupOptions($options + [
+                'form-group-class' => 'form-radios',
+                'id' => $name,
+            ]);
 
         return $this->getFormGroupWithLabel($name, $label, $wrapperElement, $groupOptions);
     }
@@ -887,9 +890,10 @@ class BootstrapForm
      */
     protected function getFormGroupWithLabel($name, $value, $element, $options = [])
     {
+        $for = ! empty($options['id']) ? $options['id'] : $name;
         $options = $this->getFormGroupOptions($name, $options);
 
-        return '<div' . $this->html->attributes($options) . '>' . $this->label($name, $value) . $element . '</div>';
+        return '<div' . $this->html->attributes($options) . '>' . $this->label($for, $value) . $element . '</div>';
     }
 
 
@@ -1347,6 +1351,6 @@ class BootstrapForm
      */
     protected function getGroupOptions($options = [])
     {
-        return array_only($options, ['required', 'form-group-class']);
+        return array_only($options, ['required', 'form-group-class', 'id']);
     }
 }
