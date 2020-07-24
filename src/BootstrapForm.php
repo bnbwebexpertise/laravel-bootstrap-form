@@ -926,6 +926,10 @@ class BootstrapForm
     {
         $class = ['form-group'];
 
+        if ($this->type == Type::HORIZONTAL) {
+            $class[] = 'row';
+        }
+
         if ($name) {
             $class[] = $this->getFormGroupErrorClass($name);
         }
