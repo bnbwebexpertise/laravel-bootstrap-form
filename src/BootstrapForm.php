@@ -891,7 +891,7 @@ class BootstrapForm
     protected function getFormGroupWithLabel($name, $value, $element, $options = [])
     {
         $for = ! empty($options['id']) ? $options['id'] : $name;
-        $options = $this->getFormGroupOptions($name, $options);
+        $options = $this->getFormGroupOptions($name, Arr::except($options, 'id'));
 
         return '<div' . $this->html->attributes($options) . '>' . $this->label($for, $value) . $element . '</div>';
     }
