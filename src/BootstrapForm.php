@@ -323,7 +323,7 @@ class BootstrapForm
         $wrapperElement = '<div' . $this->html->attributes($wrapperOptions) . '>' . $inputElement . $this->getFieldError($name) . $comment . '</div>';
         $groupOptions = $this->getGroupOptions($options);
 
-        return $this->getFormGroupWithLabel($name, $options['id'] ?? $label, $wrapperElement, $groupOptions);
+        return $this->getFormGroupWithLabel($name, $label, $wrapperElement, $groupOptions);
     }
 
 
