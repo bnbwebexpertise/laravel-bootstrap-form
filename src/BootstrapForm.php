@@ -1227,6 +1227,6 @@ class BootstrapForm
      */
     protected function getGroupOptions($options = [])
     {
-        return array_only($options, ['required']);
+        return Arr::only($options, ['required']);
     }
 }
