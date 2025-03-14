@@ -17,10 +17,8 @@ class BootstrapFormServiceProvider extends ServiceProvider
 
     /**
      * Register the service provider.
-     *
-     * @return void
      */
-    public function register()
+    public function register(): void
     {
         $this->mergeConfigFrom(__DIR__ . '/config/config.php', 'bootstrap_form');
 
@@ -35,10 +33,8 @@ class BootstrapFormServiceProvider extends ServiceProvider
 
     /**
      * Boot the service provider.
-     *
-     * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         $this->publishes([
             __DIR__ . '/config/config.php' => config_path('bootstrap_form.php')
@@ -48,10 +44,8 @@ class BootstrapFormServiceProvider extends ServiceProvider
 
     /**
      * Get the services provided by the provider.
-     *
-     * @return array
      */
-    public function provides()
+    public function provides(): array
     {
         return ['bootstrap_form'];
     }
